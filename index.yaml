@@ -1,3 +1,69 @@
 apiVersion: v1
-entries: {}
-generated: "2021-08-16T13:06:38.958862+08:00"
+entries:
+  snapscheduler:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: Added option to disable authentication on metrics endpoint
+        - kind: changed
+          description: Moved operator to operator-sdk 1.10
+        - kind: changed
+          description: Updated Helm deployment manifests to more closely follow operator-sdk scaffolding
+        - kind: changed
+          description: Added default host anti-affinity for the operator replicas
+        - kind: removed
+          description: Removed support for Kubernetes < 1.17
+        - kind: removed
+          description: Removed support v1alpha1 version of VolumeSnapshot
+      artifacthub.io/crds: |
+        - kind: SnapshotSchedule
+          version: v1
+          name: snapshotschedule.snapscheduler.backube
+          displayName: Snapshot schedule
+          description: Defines a schedule for automated volume snapshots
+      artifacthub.io/crdsExamples: |
+        - apiVersion: v1
+          kind: SnapshotSchedule
+          metadata:
+            name: daily
+          spec:
+            retention:
+              maxCount: 7
+            schedule: "0 0 * * *"
+        - apiVersion: v1
+          kind: SnapshotSchedule
+          metadata:
+            name: weekly
+          spec:
+            retention:
+              maxCount: 4
+            schedule: "0 0 * * 0"
+      artifacthub.io/license: AGPL-3.0-or-later
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Seamless Upgrades
+    apiVersion: v2
+    appVersion: 2.0.0
+    created: "2021-08-16T13:21:18.324987+08:00"
+    description: An operator to take scheduled snapshots of Kubernetes persistent
+      volumes
+    digest: ddc693236402d82e194265ef6e6543a4089a77de48900524be86f3cffc4dc858
+    home: https://backube.github.io/snapscheduler/
+    icon: https://raw.githubusercontent.com/backube/snapscheduler/master/docs/media/snapscheduler.svg?sanitize=true
+    keywords:
+    - csi
+    - scheduler
+    - snapshot
+    - storage
+    kubeVersion: ^1.17.0-0
+    maintainers:
+    - email: jstrunk@redhat.com
+      name: John Strunk
+      url: https://github.com/JohnStrunk
+    name: snapscheduler
+    sources:
+    - https://github.com/backube/snapscheduler
+    type: application
+    urls:
+    - https://gmarkey.github.io/snapscheduler/snapscheduler-2.0.0.tgz
+    version: 2.0.0
+generated: "2021-08-16T13:21:18.32287+08:00"
